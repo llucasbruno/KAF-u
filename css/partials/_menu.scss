@@ -1,0 +1,500 @@
+/*=========== NAVBAR DESKTOP ===========*/
+.header {
+    padding-top: 52px;
+    @include responsive(xs) {
+        padding-top: 20px;
+    }
+   
+}
+.aling {
+    display: flex;
+    align-items: center;
+  
+}
+.navbar {
+    
+    display: flex;
+    align-items: center;
+    transform: translateY(-100px);
+    opacity: 0;
+    &:hover {
+        .navbar-link {
+            color: rgba(12, 12, 255, 0.23);
+        }
+
+    }
+    
+
+    .list-navbar {
+        display: flex;
+        list-style: none;
+    }
+
+    
+   .navbar-link {
+    
+        text-decoration: none;
+        color: $blue-color;
+        font-family: 'Saira', sans-serif;
+        font-weight:500;
+        font-size: .9rem;
+        text-transform: uppercase;
+        padding:5px;
+        margin-right: 6px;
+        position: relative;
+        transition: 0.3s ease;
+
+        &::after,&::before {
+            display: inline-block;
+            opacity: 0;
+            transition: transform 0.3s, opacity 0.2s;
+        }
+
+        &::before {
+            margin-right: 5px;
+            content: '[';
+            transform: translateX(20px);
+        }
+
+        &::after {
+            margin-left: 5px;
+            content: ']';
+            transform: translateX(-20px);
+            
+        }
+       
+        &:hover {
+            &::after,&::before {
+                opacity: 1;
+                transform: translateX(0px);
+            }
+        }
+          
+
+       &:hover {
+            color: $blue-color;
+       }
+    }
+
+    @include responsive(s) {
+        display: none;
+    }
+    
+}
+
+/*=========== SOCIALS ICON ===========*/
+
+.socials {
+    display: flex;
+    align-items: center;
+    transform: translateY(-100px);
+    opacity: 0;
+
+    @include responsive(s) {
+        display: none;
+    }
+}
+
+#twitter-lg, #discord-lg{
+    transition: .2s ease;
+    &:hover {
+        fill: rgba(12, 12, 255, 0.43);
+    }
+    
+}
+
+
+/*=========== MENU BX ===========*/
+
+
+
+.menu-bx {
+    font-size: 1rem;
+    text-decoration: none;
+    font-family: 'Saira', sans-serif;
+    color: blue;
+    font-weight: 400;
+    width: auto;
+    overflow: hidden;
+    text-align: right;
+    position: relative;
+    z-index: 10000;
+    .menu-text {
+      display: flex;
+       span {
+        width: 100%;
+        margin-right: -100%;
+        opacity: 0;
+        transition: opacity 200ms linear; 
+      }
+    }
+   
+    &::after, 
+    &::before {
+      content: "";
+      display: block;
+      height: 2px;
+      width: 100%;
+      background: blue;
+      transition: transform 200ms cubic-bezier(.5, 0, .5, 1)
+    }
+    
+    &::before {
+      transform-origin: top right;
+      transform: scaleX(.3);
+    }
+    
+    &::after {
+      transform-origin: top right;
+      transform: scaleX(.55);
+    }
+    
+    &:hover {
+      [data-hover]{
+        opacity: 1;
+      }
+      &::after {
+        transform: translateY(.35em) scaleX(.55);
+      }
+       &::before {
+        transform: translateY(-.35em) scaleX(.3);
+      }
+    }
+  }
+  
+  .open .menu-bx {
+    color: white;
+    [data-hover]{
+        opacity: 0;
+     }
+    [data-close]{
+        opacity: 1;
+     }
+     &::after {
+        transform: translateY(0) scaleX(.3);
+        background-color: $white-color;
+        
+      }
+       &::before {
+        transform: translateY(0) scaleX(.55);
+        background-color: $white-color;
+     }
+    &:hover {
+       &::after {
+            transform: translateY(.35em) scaleX(.4);
+        }
+         &::before {
+            transform: translateY(-.35em) scaleX(.55);
+       }
+    }
+  }
+  
+
+
+/*=========== MENU  ===========*/
+
+.menu {
+    width: 100%;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    background-color: $blue-color;
+    overflow: hidden;
+    opacity: 0;
+    pointer-events: none;
+    transition: .7s ease;
+   
+}
+
+.active-menu {
+    opacity: 1;
+    pointer-events: all;
+   
+}
+
+
+.menu-container{
+    max-width: $container-xl;
+    padding: 24px 32px;
+    margin: 0 auto;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    @include responsive(xs) {
+        align-items: flex-start;
+        flex-direction: column;
+        padding-top: 100px;
+
+      
+    }
+
+}
+
+
+
+.menu-list {
+    display: flex;
+    flex-direction: column;
+    list-style: none; 
+
+    &:hover {
+        .link1 {
+            color: rgba(255, 255, 255, 0.349);
+
+            &:hover {
+                color: $white-color;
+            }
+        }
+    }
+}
+
+
+
+.link1 {
+    width: 100%;
+    display: inline-block;
+    color: $white-color;
+    font-size: 3.5rem;
+    text-decoration: none;
+    font-family: 'Orbitron',Helvetica, sans-serif;
+    padding: 8px 14px;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+    transition: .3s ease;
+
+    @include responsive(s) {
+        font-size: .8rem;
+        font-weight: 400;
+    }
+
+ 
+  
+
+    
+    &::after,&::before {
+        display: inline-block;
+        opacity: 0;
+        transition: transform 0.3s, opacity 0.2s;
+    }
+
+    &::before {
+        margin-right: 7px;
+        content: '[';
+        transform: translateX(20px);
+    }
+
+    &::after {
+        margin-left: 7px;
+        content: ']';
+        transform: translateX(-20px);
+        
+    }
+   
+    &:hover {
+        &::after,&::before {
+            opacity: 1;
+            transform: translateX(0px);
+        }
+    }
+  
+}
+
+
+/*======================*/
+/*======= EL COMPOSITIONS MENU ========*/
+/*======================*/
+
+
+.compositions-menu {
+    
+
+    .mmm-w {
+        position: absolute;
+        bottom: 80px;
+        left: 20px;
+        width: 10px;
+    }
+   
+    .dots-white {
+        width: 50px;
+        position: absolute;
+        top: 40px;
+        left: -10px;
+        transition: .3s ease;
+        
+
+        @include responsive(s) {
+            width: 40px;
+            top: 30px;
+            left: -10px;
+        }
+    }
+}
+
+.l-sline {
+    position: absolute;
+    top: -80px;
+    right: -20px;
+    @include responsive(xs) {
+        display: none;
+    }
+}
+
+.lc-menu {
+    position: absolute;
+    bottom: -120px;
+    left: -300px;
+    @include responsive(xs) {
+        display: none;
+    }
+}
+
+.s-dotline {
+    position: absolute;
+    right: -199px;
+    top: 200px;
+
+    @include responsive(xs) {
+        display: none;
+    }
+
+    
+}
+
+
+   
+.target{
+    position: absolute;
+    display: inline-block;
+    font-style: normal;
+    font-size: 1rem;
+    color: #ffffff;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 4px 52px;
+    margin-left: 50px;
+    bottom: 20px;
+    left: 20px;
+    background-color: $black-color;
+
+    @include responsive(xs) {
+        display: none;
+        
+    }
+   
+ 
+
+
+    &::before {
+        white-space: nowrap;
+        content: attr(data-text);
+        padding: 4px 52px;
+        position: absolute;
+        width: 100%;
+        left: -2px;
+        text-shadow: 1px 0 rgb(238, 0, 255);
+        top: 0;
+        color: $blue-color;
+        overflow: hidden;
+        clip: rect(0, 900px, 0, 0);
+        animation: noise-anim-2 1.8s infinite linear alternate-reverse;
+    }
+
+
+      &::after {
+        white-space: nowrap;
+        content: attr(data-text);
+        position: absolute;
+        transform: rotate(180deg);
+        padding: 4px 52px;
+        left: 2px;
+        text-shadow: -1px 0 rgb(255, 0, 0);
+        top: 0;
+        color: $purple-color;
+        overflow: hidden;
+        clip: rect(0, 100px, 0, 0);
+        animation: noise-anim 1s infinite linear alternate-reverse;
+    }
+
+}
+/*======= EL COMPOSITIONS MENU end ========*/
+
+  
+
+.tittle-content {
+    display: flex;
+
+    img {
+        width: 30px;
+    }
+}
+.h1-menu {
+    color: $white-color;
+    font-weight: 400;
+    letter-spacing: 0.4em;
+    line-height: 160%;
+    transform: translateX(-50px);
+    margin-bottom: 24px;
+
+    @include responsive(xs) {
+        display: none;
+    }
+   
+   
+}
+ 
+.info-vmg {
+    position: relative;
+
+    .squares {
+        position: absolute;
+        right: 50px;
+        top: -30px; 
+    }
+    .squares2 {
+        position: absolute;
+        bottom: -30px;
+        left: -35px;
+        z-index: -1;
+    }
+}
+
+.img-clip  {
+    width: 270px;
+    clip-path: polygon(0 7%,53% 7%,59% 0,100% 0,100% 93%,47% 93%,41% 100%,0 100%);
+    transform: translateX(-50px);
+
+    @include responsive(xs) {
+        display: none;
+    }
+}
+
+.video-clip {
+    max-width: 270px;
+    clip-path: polygon(0 7%,53% 7%,59% 0,100% 0,100% 93%,47% 93%,41% 100%,0 100%);
+
+    video {
+        width: 100%;
+    }
+
+    @include responsive(xs) {
+        margin-top: -200px;
+    }
+}
+
+.menu-character {
+    width: 200px;
+    display: none;
+    position: absolute;
+    z-index: -1;
+    right: 0;
+    top: 100px;
+
+    @include responsive(xs) {
+        display: block;
+    }
+}

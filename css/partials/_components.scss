@@ -1,0 +1,135 @@
+//Elements compositions of bg
+
+.c-1{
+    position: absolute;
+    left: 16rem;
+    transform: scaleY(0);
+    opacity: 0;
+}
+
+.line-d1 {
+    position: absolute;
+    left: 400px;
+    top: 10rem;
+    width: 20%;
+    @include responsive(s) {
+        left: 150px;
+    }
+
+    transform: scaleY(0);
+    opacity: 0;
+
+    
+}
+
+.circles-c {
+    position: absolute;
+    left: 80%;
+    top: 25%;
+    width: 10%;
+
+    @include responsive(s) {
+        display: none;
+    }
+}
+
+.bg-c5 {
+    position: absolute;
+    width: 400px;
+    left: -100px;
+    top: 20%;
+
+    @include responsive(s) {
+        display: none;
+    }
+    transform: scaleY(0);
+    opacity: 0;
+}
+
+.bg-anime {
+    position: absolute;
+    left: -100px;
+}
+
+.side-dots {
+    position: absolute;
+    left: 0;
+    @include responsive(xs) {
+        display: none;
+    }
+
+    transform: scaleY(0);
+    opacity: 0;
+}
+
+.continuos {
+    position: absolute;
+    left: 0;
+    top: -2px;
+}
+
+.k-info {
+    position: absolute;
+    left: 50px;
+    top: 30px;
+    z-index: 10;
+
+    @include responsive(s) {
+        top: 20px;
+    }
+}
+
+.mmm {
+    position: absolute;
+    bottom: 80px;
+    left: 20px;
+    width: 10px;
+    transform: scaleY(0);
+    opacity: 0;
+}
+
+.bg-comp3 {
+    position: absolute;
+    right: -150px;
+    top: 180px;
+    width: 20%;
+}
+
+.bg-top {
+    position: absolute;
+    top: -250px;
+    left: 30%;
+    width: 20%;
+    z-index: -10;
+
+    @include responsive(s) {
+        top: -110px;
+        left: 50%;
+    }
+    
+}
+.lines-2 {
+    position: absolute;
+    top: 120px;
+    left: 8%;
+    width: 3%;
+    z-index: -10;
+
+    @include responsive(s) {
+        top: -110px;
+        left: 50%;
+    }
+}
+.text-comp {
+    position: absolute;
+    top: 320px;
+    right: 3%;
+    width: 8%;
+    z-index: -10;
+
+    @include responsive(s) {
+        top: -110px;
+        left: 50%;
+    }
+    
+}

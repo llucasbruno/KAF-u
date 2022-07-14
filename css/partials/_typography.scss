@@ -1,0 +1,54 @@
+
+@mixin typeface-1($size, $device: desktop) {
+    font-family: 'Saira', sans-serif;
+
+    //H1
+    @if $size == h1 and $device == desktop {
+        font-size: 16px;
+        line-height: 100%;
+    } @else if $size == h1 and $device == mobile {
+        font-size: 14px;
+        line-height: 120%;
+    }
+
+}
+
+//typeface-2 
+
+@mixin typeface-2 ($size: link, $device: desktop) {
+
+    font-family: 'Orbitron',Helvetica, sans-serif;
+
+    //link1
+    @if $size == link1 and $device == desktop {
+        font-size: 64px;
+        line-height: 130%;
+    } @else if $size == link1 and $device == mobile {
+        font-size: 24px;
+        line-height: 130%;
+    }
+
+    //link2
+    @if $size == link2 and $device == desktop {
+        font-size: 16px;
+        line-height: 140%;
+    } @else if $size == link2 and $device == mobile {
+        font-size: 14px;
+        line-height: 150%;
+    }
+}
+
+
+
+
+h1 {
+    color: $blue-color;
+    font-weight: lighter;
+    @include typeface-1(h1, desktop );
+    @include responsive(s) {
+        @include typeface-1(h1, mobile );
+    }
+}
+
+
+

@@ -1,0 +1,254 @@
+// Loyout of project
+
+// Container devices
+
+$container-xl: 1440px;
+$container-l: 1140px;
+$container-m: 960px;
+$container-s: 540px;
+
+// Mixins of media query
+
+@mixin responsive($device) {
+    
+   
+    @if $device == xl {
+        // For resolutions upper than 1440px
+        @media screen and (max-width: $container-xl){
+            @content;
+        }
+    }
+
+    @else if $device == l {
+         // For resolutions between 1140px and 1440px
+        @media screen and (max-width:$container-xl) and (min-width:$container-l) {
+            @content;
+        }
+    }
+
+    @else if $device == m {
+         // For resolutions between 960px and 1140px
+        @media screen and (max-width:$container-l) and (min-width: $container-m) {
+            @content;
+        }
+    }
+
+    @else if $device == s {
+
+        // For resolutions less than 960px 
+        @media screen and (max-width: $container-m) {
+            @content;
+        }
+    }
+    
+    @else if $device == xs {
+
+        // For resolutions less than 540px
+        @media screen and (max-width: $container-s) {
+            @content;
+        }
+    }
+
+}
+
+
+.container {
+    max-width: $container-xl;
+    padding: 24px 32px;
+    margin: 0 auto;
+    display: flex;
+    
+}
+
+
+
+.flex-top{
+    display: flex;
+    justify-content:center;
+    align-items: flex-start;
+}
+.flex-end{
+    display: flex;
+    justify-content:flex-end;
+    align-items: flex-start;
+}
+
+
+
+.flex-column{
+    flex-direction: column;
+}
+
+.flex-wrap{
+    flex-wrap: wrap;
+}
+
+.flex-item-1 {
+    flex: 1 1 360px;
+}
+
+.flex-item-2{
+    flex: 2 1 360px;
+}
+
+
+
+
+
+.main {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.main-area {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    
+}
+
+
+
+.main-img {
+    width: 50%;
+    height: 100%;
+    position: relative;
+  
+
+    .sp-efct{
+        position: relative;
+        width: 31.6vw;
+        object-fit: cover;
+        filter: url(#sp-efct);
+       
+        opacity: 0;
+       
+        
+     
+        top: -7vw;
+
+        @include responsive(s) {
+            width: 65.13vw;
+            left: -19vw;
+        }
+    }
+
+
+    svg {
+        position: fixed;
+    }
+}  
+
+.content-logo {
+    width: 50%;
+    position: relative;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+}
+
+.mv-logo {
+    position: absolute;
+    transform: scaleY(0);
+    left: 6.66667vw;
+    width: 34.33333vw;
+    opacity: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+
+    @include responsive(xs) {
+        margin-top: 0px;
+       
+    }
+}
+
+
+
+
+
+
+.share-sec {
+    position: absolute;
+    display:flex;
+    left:  3.33333vw;
+    top: 0;
+    padding: 22px 10px;
+    background-color: $blue-color;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transform: translateY(150%);
+    border-radius: 25px;
+    z-index: 3;
+
+    @include responsive(s) {
+        display: none;
+    }
+
+    img {
+        width: 10px;
+        margin-bottom: 10px;
+    }
+
+    svg {
+        width: 20px;
+        
+    }
+    
+
+    #share-tw {
+        display: inline-block;
+        transition: .2s ease;
+        fill: $white-color;
+        cursor: pointer;
+        width: 100%;
+        &:hover {
+            fill: rgba(255, 255, 255, 0.663);
+        }
+      
+       
+    }
+
+    #like-ballon {
+        display: inline-block;
+        transition: .2s ease;
+        fill: $white-color;
+        cursor: pointer;
+        width: 100%;
+        &:hover {
+            fill: rgba(255, 255, 255, 0.663);
+        }
+    }
+
+    #wpp {
+        display: inline-block;
+        transition: .2s ease;
+        fill: $white-color;
+        cursor: pointer;
+        width: 100%;
+        &:hover {
+            fill: rgba(255, 255, 255, 0.663);
+        }
+    }
+
+    .share-btns {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        
+        .icons {
+            margin-bottom: 14px;
+            list-style: none;
+        }
+    }
+
+}
+
+
+
